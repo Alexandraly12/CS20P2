@@ -31,8 +31,6 @@ public class RectanglePerimeter
 	     // Display the perimeter
 	        System.out.print("The perimeter of the rectangle is:" + perimeter);
 	        
-	     
-
 	}
 
 }
