@@ -37,7 +37,9 @@ public class GradeAvg1
 		average = (num1 + num2 + num3 + num4 + num5)/ 5;
 
 		//Display Average
-		System.out.print("The average of your grades is" + average);
+		System.out.print("Your grade average is " + average + "%");
+		
+		input.close();
 	}
 
 }

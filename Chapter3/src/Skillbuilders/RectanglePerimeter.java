@@ -28,9 +28,11 @@ public class RectanglePerimeter
 	     // Display the width and length
 	        System.out.println("The width is:" + width);
 	        System.out.println("The length is:" + length);
+	        
 	     // Display the perimeter
 	        System.out.print("The perimeter of the rectangle is:" + perimeter);
 	        
+	        input.close();
 	}
 
 }

@@ -8,10 +8,9 @@ public class Digits
 	public static void main(String[] args) 
 	{
 		//Declare variables
-		int number;
-		int tens;
-		int ones;
+		int number, tens, ones;
 		
+		//Create scanner object to read user input
 		Scanner input = new Scanner(System.in);
 		
 		//Prompt user to enter a two digit number
