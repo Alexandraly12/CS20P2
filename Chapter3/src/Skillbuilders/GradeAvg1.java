@@ -8,11 +8,7 @@ public class GradeAvg1
 	public static void main(String[] args) 
 	{
 		//Declare variables
-		double num1;
-		double num2;
-		double num3;
-		double num4;
-		double num5;
+		double num1, num2, num3, num4, num5;
 		double average;
 		
 		Scanner input = new Scanner(System.in);
