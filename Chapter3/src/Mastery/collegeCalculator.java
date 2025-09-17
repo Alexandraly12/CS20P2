@@ -35,7 +35,7 @@ public class collegeCalculator
 		System.out.print ("Grants: ");
 		sum -= input.nextDouble();
 		
-		System.out.print("Your grade average is " + sum + "%");
+		System.out.print("Your total schooling cost is $" + sum );
 		
 		input.close();
 	}
