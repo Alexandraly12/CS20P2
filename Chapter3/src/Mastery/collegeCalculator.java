@@ -35,8 +35,10 @@ public class collegeCalculator
 		System.out.print ("Grants: ");
 		sum -= input.nextDouble();
 		
+		//Display total costs to user
 		System.out.print("Your total schooling cost is $" + sum );
 		
+		//Close scanner
 		input.close();
 	}
 
