@@ -11,15 +11,18 @@ public class perfectSquare {
 		Scanner input = new Scanner(System.in);
 		
 		System.out.print("Please enter an integer: ");
-		int num = input.nextInt();
+		int number = input.nextInt();
 		
-		num = Math.sqrt (num);
+		double sqrtNum = Math.sqrt (number);
 		
-		Math.pow(num, power);
+		int num = (int) sqrtNum;
+		
+		
+		
 		
 		System.out.print(num);
 	
-		
+		input.close();
 
 	}
 
