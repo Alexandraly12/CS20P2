@@ -7,7 +7,6 @@ public class perfectSquare {
 
 	public static void main(String[] args) 
 	{
-		double power = 2;
 		Scanner input = new Scanner(System.in);
 		
 		System.out.print("Please enter an integer: ");
@@ -17,11 +16,17 @@ public class perfectSquare {
 		
 		int num = (int) sqrtNum;
 		
-		
-		
-		
-		System.out.print(num);
+		int squared = num * num;
 	
+		if (squared == number)
+		{
+			System.out.print( number + " is a perfect square.");
+		}
+		else
+		{
+			System.out.print( number + " is not a perfect square.");
+		}
+		
 		input.close();
 
 	}
