@@ -17,14 +17,13 @@ public class Necklace {
 		System.out.print("Please enter the second digit:");
 		int num2 = input.nextInt();
 		
-		System.out.print(num1 + " " + num2);
-	
+		do {
 		digit = num1 + num2;
 		sum = digit % 10;
+		}
 		
 		while (digit != num1 || digit !=num2); {
 			System.out.print(sum);
-			
 		}
 		
 		
