@@ -17,15 +17,21 @@ public class Necklace {
 		System.out.print("Please enter the second digit:");
 		int num2 = input.nextInt();
 		
-		do {
-		digit = num1 + num2;
-		sum = digit % 10;
-		}
+		System.out.print(num1 + " " + num2);
 		
-		while (digit != num1 || digit !=num2); {
-			System.out.print(sum);
-		}
+		do
+		{
+			digit = num1 + num2;
+			sum = digit % 10;
 		
+			if (digit != num1 || digit !=num2); 
+			{
+				System.out.print(sum);
+			}
+			
+			sum = sum + num2;
+		
+		}while(digit != num1 || digit !=num2);
 		
 		
 		input.close();

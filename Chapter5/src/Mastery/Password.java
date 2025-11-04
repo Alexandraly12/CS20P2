@@ -12,19 +12,21 @@ public class Password {
 		int numguess = 0;
 		Scanner input = new Scanner(System.in);
 		
-		do {
+		do 
+		{
 			System.out.println("Password: ");
 			guess = input.nextLine();
 			numguess += 1;
 			
-			if (guess.equalsIgnoreCase(password) == false && numguess <= 2) {
+			if (guess.equals(password) == false && numguess <= 2) 
+			{
 				System.out.println("The password you have entered is incorrect. Try again.");
 			}
 			
-		}while(guess.equalsIgnoreCase(password) == false && numguess <= 2);
+		}while(guess.equals(password) == false && numguess <= 2);
 		
 		
-		if(guess.equalsIgnoreCase(password) == true) {
+		if(guess.equals(password) == true) {
 			System.out.print("Welcome!");
 		}
 		
