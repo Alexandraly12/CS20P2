@@ -8,31 +8,31 @@ public class Necklace {
 	
 	{	
 		int sum;
-		int digit;
+		int lastdigit;
 		Scanner input = new Scanner(System.in);
 		
-		System.out.print("Please enter the first digit:");
+		System.out.print("Please enter the first starting number:");
 		int num1 = input.nextInt();
 		
-		System.out.print("Please enter the second digit:");
+		System.out.print("Please enter the second starting number:");
 		int num2 = input.nextInt();
 		
 		System.out.print(num1 + " " + num2);
 		
+		int Num1 = num1;
+		int Num2 = num2;
+		
 		do
 		{
-			digit = num1 + num2;
-			sum = digit % 10;
-		
-			if (digit != num1 || digit !=num2); 
-			{
-				System.out.print(sum);
-			}
+			sum = Num1 + Num2;
+			lastdigit = sum % 10;
 			
-			sum = sum + num2;
+			System.out.print(" " + lastdigit);
 		
-		}while(digit != num1 || digit !=num2);
+			Num1 = Num2;
+			Num2 = lastdigit;
 		
+		}while(Num1 != num1 || Num2 !=num2);
 		
 		input.close();
 
