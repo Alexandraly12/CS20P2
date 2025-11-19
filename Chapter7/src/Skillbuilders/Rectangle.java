@@ -1,5 +1,6 @@
 package Skillbuilders;
 
-public class Rectangle {
+public class Rectangle 
+{
 
 }
