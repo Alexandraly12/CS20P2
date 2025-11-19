@@ -9,10 +9,9 @@ public class circleTester {
 		 System.out.println("Circle radius: " + spot.getRadius());
 		 System.out.println("Circle circumference: " + spot.circumference());
 		 System.out.println("Circle area: " + spot.area());
+		 
+		 Circle.displayAreaFormula();
 	 }
 
-	 public static void displayAreaFormula()
-	 {
-		 System.out.print ("The formula for the area of a circle is a= PI * r * r");
-	 }
+	 
 }
