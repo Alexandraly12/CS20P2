@@ -6,11 +6,14 @@ public class circleTester {
 	 {
 		 Circle spot = new Circle(5);
 		 //spot.setRadius();
-		 System.out.println("Circle radius: " + spot.getRadius());
+		 System.out.println(spot);
 		 System.out.println("Circle circumference: " + spot.circumference());
-		 System.out.println("Circle area: " + spot.area());
+		 System.out.println("Circle area: " + spot.area()
+				 			+ "\n");
 		 
 		 Circle.displayAreaFormula();
+		 
+		 System.out.print("Does test obj. have the same radii as spot?: " + spot.equals(spot));
 	 }
 
 	 

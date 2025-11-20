@@ -43,23 +43,22 @@ public class Circle {
 		 System.out.println ("The formula for the area of a circle is A = PI * r * r");
 	 }
 	
-	 public boolean equals(Object c) {
-	 Circle testObj = (Circle)c;
+	 public boolean equals(Object c) 
+	 {
+		 Circle testObj = (Circle)c;
 
-	 if (testObj.getRadius() == radius) 
-	 {
-	 return(true);
-	 } 
-	 else 
-	 {
-	 return(false);
-	 }
+	 	if (testObj.getRadius() == radius) 
+	 	{
+	 		return(true);
+	 	} 
+	 	else 
+	 	{
+	 		return(false);
+	 	}
 	 }
 	 
 	 public String toString() 
 	 {
-	 String circleString;
-	 circleString = "Circle has radius " + radius;
-	 return(circleString);
+		 return("Radius: " + radius);
 	 }
 }
