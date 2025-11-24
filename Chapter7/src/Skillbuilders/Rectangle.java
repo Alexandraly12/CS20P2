@@ -51,6 +51,11 @@ public class Rectangle
 		return (perimeter);
 	}
 	
+	public static void areaFormula()
+	{
+		System.out.println("Area of Rectangle Formula: length x width");
+	}
+	
 	public String toString()
 	{
 		return("length: " + length
@@ -58,14 +63,18 @@ public class Rectangle
 				
 	}
 	
-	public static void areaFormula()
+	public boolean equals(Object a)
 	{
-		System.out.println("Area of Rectangle Formula: length x width");
-	}
-	
-	public boolean something(Object a)
-	{
+		Rectangle testObj = (Rectangle)a;
 		
+		if (testObj.getLength() == length && testObj.getWidth() == width)
+		{
+			return(true);
+		}
+		else
+		{
+			return(false);
+		}
 		
 	}
 	

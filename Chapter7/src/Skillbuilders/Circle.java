@@ -2,7 +2,7 @@ package Skillbuilders;
 
 public class Circle {
 
-	private static final double PI = 3.14;
+	 private static final double PI = 3.14;
 	 private double radius;
 	 
 	 public Circle() 
