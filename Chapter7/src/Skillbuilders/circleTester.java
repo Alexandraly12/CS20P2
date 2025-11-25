@@ -1,6 +1,7 @@
 package Skillbuilders;
 
-public class circleTester {
+public class circleTester 
+{
 
 	 public static void main(String[] args) 
 	 {
@@ -14,6 +15,7 @@ public class circleTester {
 		 Circle.displayAreaFormula();
 		 
 		 System.out.print("Does test obj. have the same radii as spot?: " + spot.equals(spot));
+		 
 	 }
 
 	 

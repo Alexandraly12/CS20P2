@@ -18,6 +18,8 @@ public class testRectangle
 							+ "\n ");
 		
 		Rectangle.areaFormula();
+		
+		System.out.println("Is the test rectangle equal to rectangle 'one'?: " + one.equals(one));
 	}
 
 }
