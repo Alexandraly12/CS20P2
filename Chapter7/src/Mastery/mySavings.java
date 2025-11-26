@@ -6,7 +6,8 @@ public class mySavings
 	private static final double nickel = 0.05;
 	private static final double dime = 0.10;
 	private static final double quarter = 0.25;
-	private double balance = 0;
+	private double balance;
+	private double out;
 	
 	public mySavings()
 	{
@@ -16,11 +17,6 @@ public class mySavings
 	public mySavings(double amount)
 	{
 		balance = amount;
-	}
-	
-	public double getBalance(double balance)
-	{	
-		return(balance);
 	}
 	
 	public void depositP()
@@ -43,9 +39,23 @@ public class mySavings
 		balance += quarter;
 	}
 	
+	public double getBalance()
+	{	
+		Math.round((balance * 100) / 100);
+		return(balance);
+	}
+	
+	public double withdraw()
+	{
+		out += balance;
+		balance -= balance;
+		return(out);
+	}
+
 	public String toString()
 	{
-		return("Balance: " + balance);
+		return("Bank Balance: " + balance
+				+"\nAmount withdrew: " + out);
 	}
 	
 	
