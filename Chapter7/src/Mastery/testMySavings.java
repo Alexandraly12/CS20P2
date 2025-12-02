@@ -18,7 +18,7 @@ public class testMySavings {
 				+ "\nEnter 0 to quit."
 				);
 		
-		int option = 1;
+		int option;
 		
 		do 
 		{
