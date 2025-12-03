@@ -7,7 +7,7 @@ public class Nim2
 	private static final int min = 15;
 	private int number;
 	private int userStones;
-	private int comStones;
+	private int v;
 	
 	public Nim2()
 	{
@@ -26,30 +26,47 @@ public class Nim2
 		return(number);
 	}
 	
-	public int comTakeStone(int take)
+	public int comTakeStone()
 	{	
 		Random amount = new Random();
-		take = amount.nextInt(1 - 3) +1;
+		int take = amount.nextInt(3) +1;
 		comStones += take;
 		number -= take;
 		
 		return take;
 	}
 	
-	public int remainingStones()
+	public int remainingStones1()
 	{
-		
+		number -= 1;
+		return number;
 	}
 	
-	public void user()
+	public int remainingStones2()
 	{
-		number -= ;
+		number -= 2;
+		return number;
 	}
 	
+	public int remainingStones3()
+	{
+		number -= 3;
+		return number;
+	}
+	
+	public int useValue(int v)
+	{
+		return v;
+	}
 	
 	public int getstones()
 	{
 		return(number);
+	}
+	
+	public boolean equals()
+	{
+		if (
 	}
 	
 	public String toString()
