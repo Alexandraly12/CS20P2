@@ -7,7 +7,8 @@ public class Nim2
 	private static final int min = 15;
 	private int number;
 	private int userStones;
-	private int v;
+	private int comStones;
+	private boolean playerTurn = true;
 	
 	public Nim2()
 	{
@@ -29,12 +30,14 @@ public class Nim2
 	public int comTakeStone()
 	{	
 		Random amount = new Random();
-		int take = amount.nextInt(3) +1;
+		int maxTaken = Math.min(3, number);
+		int take = amount.nextInt(maxTaken) +1;
 		comStones += take;
 		number -= take;
 		
 		return take;
 	}
+	
 	
 	public int remainingStones1()
 	{
@@ -54,23 +57,31 @@ public class Nim2
 		return number;
 	}
 	
-	public int useValue(int v)
-	{
+	public int getValue(int v)
+	{	
+		userStones = v;
 		return v;
 	}
 	
-	public int getstones()
+	public int getStones()
 	{
 		return(number);
 	}
 	
-	public boolean equals()
+	public boolean turn()
 	{
-		if (
+		return (playerTurn);
+	}
+	
+	public void flipTurn()
+	{
+		playerTurn = !playerTurn;
 	}
 	
 	public String toString()
 	{
-		return("")
+		return("There were " + start() + " stones."
+				+ "You have " + userStones + " stones."
+				+"\nComputer has " + comStones + " stones.");
 	}
 }

@@ -15,19 +15,20 @@ public class testNim2
 		do {
 			System.out.println("How many stones would you like to take?(1, 2 or 3)");
 			int taken = input.nextInt();
-			game.useValue(taken);
+			game.getValue(taken);
+			game.flipTurn();
 			
-			if(taken == 1)
-			{
+			if(taken == 1 && game.getStones() >= 1)
+			{	
 				System.out.println("Computer takes " + game.comTakeStone() + " stone(s).");
 				System.out.println("Stones remaining: " + game.remainingStones1());
 			}
-			else if(taken == 2)
+			else if(taken == 2 && game.getStones() >= 2)
 			{
 				System.out.println("Computer takes " + game.comTakeStone() + " stone(s).");
 				System.out.println("Stones remaining: " + game.remainingStones2());
 			}
-			else if(taken == 3)
+			else if(taken == 3 && game.getStones() >= 3)
 			{
 				System.out.println("Computer takes " + game.comTakeStone() + " stone(s).");
 				System.out.println("Stones remaining: " + game.remainingStones3());
@@ -35,10 +36,22 @@ public class testNim2
 			else
 			{
 				System.out.println("Unvalid amount.");
-				System.out.println("Stones remaining: " + game.getstones());
+				System.out.println("Stones remaining: " + game.getStones());
 			}
 
-		}while (game.getstones() >= 0);
+		}while (game.getStones() > 0);
+		
+		if(game.turn() == true)
+		{
+			System.out.println("You won!");
+		}
+		else
+		{
+			System.out.println("You lost, good try!");
+			
+		}
+		System.out.print(game);
+		
 		
 		input.close();
 		
