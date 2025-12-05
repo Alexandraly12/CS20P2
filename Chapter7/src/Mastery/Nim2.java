@@ -38,22 +38,9 @@ public class Nim2
 		return take;
 	}
 	
-	
-	public int remainingStones1()
+	public int remainingStones()
 	{
-		number -= 1;
-		return number;
-	}
-	
-	public int remainingStones2()
-	{
-		number -= 2;
-		return number;
-	}
-	
-	public int remainingStones3()
-	{
-		number -= 3;
+		number -= userStones;
 		return number;
 	}
 	
