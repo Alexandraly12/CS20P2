@@ -9,6 +9,7 @@ public class mySavings
 	private double balance;
 	private double out;
 	
+	//Constructor method
 	public mySavings()
 	{
 		balance = 0;
@@ -19,32 +20,38 @@ public class mySavings
 		balance = amount;
 	}
 	
+	//Add a penny to balance
 	public void depositP()
 	{
 		balance += penny;
 	}
 	
+	//Add a nickel to balance
 	public void depositN()
 	{
 		balance += nickel;
 	}
 	
+	//Add a dime to balance
 	public void depositD()
 	{
 		balance += dime;
 	}
 	
+	//Add a quarter to balance
 	public void depositQ()
 	{
 		balance += quarter;
 	}
 	
+	//Calculate balance without extra decimals
 	public double getBalance()
 	{	
 		Math.round((balance * 100) / 100);
 		return(balance);
 	}
 	
+	//Withdraw all money from balance
 	public double withdraw()
 	{
 		out += balance;

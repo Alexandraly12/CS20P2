@@ -7,8 +7,10 @@ public class testMySavings {
 	public static void main(String[] args) 
 	{
 		Scanner input = new Scanner(System.in);
+		//Create object
 		mySavings PiggyBank = new mySavings();
 		
+		//List options for user
 		System.out.println("1. Show total in bank. "
 				+ "\n2. Add a penny. "
 				+ "\n3. Add a nickel. "
@@ -20,11 +22,13 @@ public class testMySavings {
 		
 		int option;
 		
+		//Create loop
 		do 
 		{
 			System.out.print("Enter option: ");
 			option = input.nextInt();
 			
+	
 			if(option == 1)
 			{
 				System.out.println("Balance: $" + PiggyBank.getBalance());
@@ -58,8 +62,9 @@ public class testMySavings {
 				System.out.println("Invalid Option.");
 			}
 		
-		}while (option != 0);
-			
+		}while (option != 0); //Continue loop unless user enters 0
+		
+		//Close Scanner
 		input.close();
 	}
 
