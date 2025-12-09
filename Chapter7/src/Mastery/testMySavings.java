@@ -28,7 +28,7 @@ public class testMySavings {
 			System.out.print("Enter option: ");
 			option = input.nextInt();
 			
-	
+			//Actions of user's option
 			if(option == 1)
 			{
 				System.out.println("Balance: $" + PiggyBank.getBalance());
