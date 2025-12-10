@@ -4,17 +4,17 @@ public class Squares {
 
 	public static void main(String[] args) 
 	{
-		int[] Square;
+		double[] Square;
 		
-		Square = new int[5];
+		Square = new double[5];
 		
-		for (int i = 0; i < 55; i++)
+		for (int i = 0; i < 5; i++)
 		{
 			double number = Math.pow(i, 2);
-			Square[(int) number] += 1;
+			System.out.print(number + " ");
+			Square[i] = number;
 		}
 		
-		for (int)
 	}
 
 }
