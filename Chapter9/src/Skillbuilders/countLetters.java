@@ -21,9 +21,14 @@ public class countLetters
 		 /* convert word to char array and count letter occurrences */
 		 word = word.toUpperCase();
 		 wordLetters = word.toCharArray();
-		 for (int letter = 0; letter < wordLetters.length; letter++) {
-		 offset = wordLetters[letter] - LOW;
-		 letterCounts[offset] += 1;
+		 
+		 for (int letter = 0; letter < wordLetters.length; letter++) 
+		 {
+			 if(wordLetters[letter] >= LOW && wordLetters[letter] <= HIGH)
+			 {
+				 offset = wordLetters[letter] - LOW;
+				 letterCounts[offset] += 1;
+			 }
 		 }
 
 		 /* show letter occurrences */
@@ -31,6 +36,8 @@ public class countLetters
 		 {
 			 System.out.println((char)i + ": " + letterCounts[i - LOW]);
 		 }
+		 
+		 input.close();
 
 	}
 
