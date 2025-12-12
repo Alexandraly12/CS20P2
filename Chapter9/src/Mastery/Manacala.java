@@ -16,17 +16,51 @@ public class Manacala {
 			}
 		}
 		
-		for(int i: board)
-		{
-			System.out.print(i + " ");
-		}
-	
+		//Formatting board
+		//top row (player 2)
+		System.out.print("     ");
 		for(int i = 12; i >=7; i--)
-		{
-			System.out.print("i");
+		{	
+			if(board[i] >= 10)
+			{
+			System.out.print("[" + board[i] + "] ");
+			}
+			
+			else
+			{
+				System.out.print("[ " + board[i] + "] ");
+			}
 		}
 		
-		//Player 1
+		//Home pits
+		if(board[6] >= 10 || board[13] >=10)
+		{
+			System.out.println("\n"
+						+ "[" + board[6] + "]                               [" + board[13] + "]");
+		}
+		else
+		{
+			System.out.println("\n"
+						+ "[ " + board[6] + "]                               [ " + board[13] + "]");
+		}
+		
+		//Bottom row (player 1)
+		System.out.print("     ");
+		for(int i = 0; i <=5; i++)
+		{
+			if(board[i] >= 10)
+			{
+			System.out.print("[" + board[i] + "] ");
+			}
+			
+			else
+			{
+				System.out.print("[ " + board[i] + "] ");
+			}
+		}
+		
+		//Player 1 game play
+		
 		
 
 	}
