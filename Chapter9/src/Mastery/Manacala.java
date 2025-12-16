@@ -24,10 +24,11 @@ public class Manacala {
 			}
 		}
 		
-		//Formatting board
-		//top row (player 2)
-		do
+		
+		do//Player 1 Turn
 		{
+			//Formatting board
+			//top row (player 2)
 			System.out.print("     ");
 			for(int i = 12; i >=7; i--)
 			{	
