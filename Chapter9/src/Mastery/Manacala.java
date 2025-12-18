@@ -9,7 +9,6 @@ public class Manacala {
         Scanner input = new Scanner(System.in);
         char move;
 
-
         // Set up board
         for (int i = 0; i < board.length; i++) {
             if (i != 6 && i != 13) {
@@ -19,7 +18,7 @@ public class Manacala {
 
 
         // Game play
-        while (!isGameOver(board)) 
+        while ( isGameOver(board) == false) 
         {
             printBoard(board);
 
@@ -42,16 +41,21 @@ public class Manacala {
                 {
                 	System.out.print("That pit is empty, please reselect A - F.");
                 }
-
+                else
+                {
                 sowStones(board, pit, true);
+                playerOneTurn = !playerOneTurn;
+                exceptions(board, pit);
+                
+                }
             } 
             //Player 2's turn
-            else 
+            else if (playerOneTurn == false)
             {
                 System.out.print("\n"
                 		+ "Player 2: Choose pit (A - F): ");
                 move = input.next().toUpperCase().charAt(0);
-                int pit = (move - 'A') ;
+                int pit = (12 - (move - 'A')) ;
 
                 if (pit < 7 || pit > 12 ) 
                 {
@@ -61,25 +65,33 @@ public class Manacala {
                 {
                 	System.out.print("That pit is empty, please reselect A - F.");
                 }
-
-
-                sowStones(board, pit, false);
+                else
+                {
+                if(extraTurn == false)
+                {
+                	playerOneTurn = !playerOneTurn;
+                }
+                exceptions(board, pit);
+                }
             }
 
-            playerOneTurn = !playerOneTurn;
+            
         }
 
 
-        printBoard(board);
-        System.out.println("Game Over!");
+     printBoard(board);
+     System.out.println("\n"
+        		+ "Game Over! \n");
+     finalTally(board);
     }
 
 
     // Distribute stones into each pit
-    static void sowStones(int[] board, int pit, boolean playerOneTurn) 
+    public static void sowStones(int[] board, int pit, boolean playerOneTurn) 
     {
         int stones = board[pit];
         board[pit] = 0;
+        boolean extraTurn = true;
       
 		if(playerOneTurn == true)
         {
@@ -90,6 +102,11 @@ public class Manacala {
         		{
         			board[pit]++;
         			stones--;
+        		}
+        		if (pit == 6)
+        		{
+        			System.out.print("Last stone in home pit! Go Again!");
+        			extraTurn = true;
         		}
         	}
         }
@@ -104,13 +121,19 @@ public class Manacala {
         			board[pit]++;
         			stones--;
         		}
+        		if (pit == 13)
+        		{	
+        			System.out.print("Last stone in home pit! Go Again!");
+        			extraTurn = true;
+        		}
+
         	}
         }
     }
     
 
     // Check if one side is empty
-    static boolean isGameOver(int[] board) 
+    public static boolean isGameOver(int[] board) 
     {
         boolean side1 = true;
         boolean side2 = true;
@@ -133,10 +156,65 @@ public class Manacala {
 
         return side1 || side2;
     }
+    
+    public static void exceptions(int[] board, int pit)
+    {
+    	boolean playerOneTurn = true;
+    	int stones = board[pit];
+    	
+		if(playerOneTurn == true)
+    	{
+	    	for(int i = 0; i < 6; i++)
+	    	{
+	    		int otherSide = 12 - i;
+		    	if(board[i] == 1 && board[otherSide] > 0)
+		    	{
+		    		board[6] += board[otherSide] + 1;
+		    		board[otherSide] = 0;
+		    	}
+	    	}
+	    	
+    	}
+    	
+		else if(playerOneTurn = false)
+		{
+	    	for(int i = 7; i < 13; i++)
+	    	{
+	    		int otherSide = 12 - i;
+		    	if(board[i] == 1 && board[otherSide] > 0)
+		    	{
+		    		board[13] += board[otherSide] + 1;
+		    		board[otherSide] = 0;
+		    	}
+	    	}
+		}
+    }
+    
+    public static void finalTally(int[] board )
+    {
+    	if(isGameOver(board) == true)
+    	{
+	    	for(int i = 0; i < 6; i++)
+	    	{
+	    		board[6] += board[i];
+	    		board[i] = 0;
+	    	}
+	    	
+	    	for(int i = 7; i < 13; i++)
+	    	{
+	    		board[13] += board[i];
+	    		board[i] = 0;
+	    	}
+    	}
+    	
+    	System.out.print("Player One: " + board[6] +
+    			"\nPlayer Two: "+ board[13]);
+    	
+    }
 
 
     // Print board
-    static void printBoard(int[] board) 
+    public static void printBoard(int[] board) 
     {
         System.out.print("\n     ");
         for (int i = 12; i >= 7; i--)
