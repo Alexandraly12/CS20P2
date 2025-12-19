@@ -2,8 +2,13 @@ package Mastery;
 import java.util.Scanner;
 
 
-public class Manacala {
-    public static void main(String[] args) {
+public class Manacala 
+{
+	
+	static int lastPit;
+	
+    public static void main(String[] args) 
+    {
         int[] board = new int[14];
         boolean playerOneTurn = true;
         Scanner input = new Scanner(System.in);
@@ -43,9 +48,12 @@ public class Manacala {
                 }
                 else
                 {
-                sowStones(board, pit, true);
-                playerOneTurn = !playerOneTurn;
-                exceptions(board, pit);
+	                boolean extraTurn = sowStones(board, pit, true);
+	                if (extraTurn == false)
+	                {
+	                	exceptions(board, playerOneTurn);
+	                	playerOneTurn = !playerOneTurn;
+	                }
                 
                 }
             } 
@@ -67,11 +75,13 @@ public class Manacala {
                 }
                 else
                 {
-                if(extraTurn == false)
-                {
-                	playerOneTurn = !playerOneTurn;
-                }
-                exceptions(board, pit);
+	                boolean extraTurn = sowStones(board, pit, false);
+	                if (extraTurn == false)
+	                {
+	                	exceptions(board, playerOneTurn);
+	                	playerOneTurn = !playerOneTurn;
+	                }
+	                
                 }
             }
 
@@ -83,52 +93,56 @@ public class Manacala {
      System.out.println("\n"
         		+ "Game Over! \n");
      finalTally(board);
+     
+     input.close();
     }
 
 
     // Distribute stones into each pit
-    public static void sowStones(int[] board, int pit, boolean playerOneTurn) 
+    public static boolean sowStones(int[] board, int pit, boolean playerOneTurn) 
     {
         int stones = board[pit];
         board[pit] = 0;
-        boolean extraTurn = true;
-      
-		if(playerOneTurn == true)
-        {
-        	while (stones > 0) 
-        	{
-        		pit = (pit + 1) % 14;
-        		if (pit != 13)
-        		{
-        			board[pit]++;
-        			stones--;
-        		}
-        		if (pit == 6)
-        		{
-        			System.out.print("Last stone in home pit! Go Again!");
-        			extraTurn = true;
-        		}
-        	}
-        }
-        
-        else if(playerOneTurn == false)
-        {
-        	while (stones > 0) 
-        	{
-        		pit = (pit + 1) % 14;
-        		if (pit != 7)
-        		{
-        			board[pit]++;
-        			stones--;
-        		}
-        		if (pit == 13)
-        		{	
-        			System.out.print("Last stone in home pit! Go Again!");
-        			extraTurn = true;
-        		}
+        boolean extraTurn = false;
 
-        	}
+        while (stones > 0) 
+        {
+            pit = (pit + 1) % 14;
+
+            if (playerOneTurn == true)
+            {
+                if (pit != 13)
+                {
+                    board[pit]++;
+                    stones--;
+                }
+            }
+            else
+            {
+                if (pit != 6)
+                {
+                    board[pit]++;
+                    stones--;
+                }
+            }
         }
+
+        // where the last stone landed
+        lastPit = pit;
+
+        //Check extra turn 
+        if (playerOneTurn == true && pit == 6)
+        {
+            System.out.print("Last stone in home pit! Go Again!");
+            extraTurn = true;
+        }
+        else if (playerOneTurn == false && pit == 13)
+        {
+            System.out.print("Last stone in home pit! Go Again!");
+            extraTurn = true;
+        }
+
+        return extraTurn;
     }
     
 
@@ -157,37 +171,36 @@ public class Manacala {
         return side1 || side2;
     }
     
-    public static void exceptions(int[] board, int pit)
+    public static void exceptions(int[] board, boolean playerOneTurn)
     {
-    	boolean playerOneTurn = true;
-    	int stones = board[pit];
-    	
-		if(playerOneTurn == true)
-    	{
-	    	for(int i = 0; i < 6; i++)
-	    	{
-	    		int otherSide = 12 - i;
-		    	if(board[i] == 1 && board[otherSide] > 0)
-		    	{
-		    		board[6] += board[otherSide] + 1;
-		    		board[otherSide] = 0;
-		    	}
-	    	}
-	    	
-    	}
-    	
-		else if(playerOneTurn = false)
-		{
-	    	for(int i = 7; i < 13; i++)
-	    	{
-	    		int otherSide = 12 - i;
-		    	if(board[i] == 1 && board[otherSide] > 0)
-		    	{
-		    		board[13] += board[otherSide] + 1;
-		    		board[otherSide] = 0;
-		    	}
-	    	}
-		}
+        if (playerOneTurn == true)
+        {
+            if (lastPit >= 0 && lastPit <= 5 && board[lastPit] == 1)
+            {
+                int otherSide = 12 - lastPit;
+
+                if (board[otherSide] > 0)
+                {
+                    board[6] += board[otherSide] + 1;
+                    board[lastPit] = 0;
+                    board[otherSide] = 0;
+                }
+            }
+        }
+        else
+        {
+            if (lastPit >= 7 && lastPit <= 12 && board[lastPit] == 1)
+            {
+                int otherSide = 12 - lastPit;
+
+                if (board[otherSide] > 0)
+                {
+                    board[13] += board[otherSide] + 1;
+                    board[lastPit] = 0;
+                    board[otherSide] = 0;
+                }
+            }
+        }
     }
     
     public static void finalTally(int[] board )
