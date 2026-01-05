@@ -6,5 +6,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="C:/Users/49358507/Desktop/Phidget22Java_1.23.20251006/Phidget22Java/phidget22.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
