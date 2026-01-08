@@ -39,33 +39,33 @@ public class UseButtonsAndLEDs {
         	boolean currentRState = redButton.getState();
         	boolean currentGState = greenButton.getState();
         	
-	        	if(redButton.getState())
-	        	{
-	        		greenLED.setState(false);
-	        		if(currentRState != prevRState)
-	        		{
-	        			Rcounter += 1;
-	        			System.out.println("Number of Red Presses: " + Rcounter);
-	        		}
-	        	}
-	        	else
-	        	{
-	        		greenLED.setState(true);
-	        	}
-	        	
-	        	if(greenButton.getState())
-	        	{
-	        		redLED.setState(false);
-	        		if(currentGState != prevGState)
-	        		{
-	        			Gcounter += 1;
-	        			System.out.println("Number of Green Presses: " + Gcounter);
-	        		}
-	        	}
-	        	else
-	        	{
-	        		redLED.setState(true);
-	        	}
+        	if(redButton.getState())
+        	{
+        		greenLED.setState(false);
+        		if(currentRState != prevRState)
+        		{
+        			Rcounter += 1;
+        			System.out.println("Number of Red Presses: " + Rcounter);
+        		}
+        	}
+        	else
+        	{
+        		greenLED.setState(true);
+        	}
+        	
+        	if(greenButton.getState())
+        	{
+        		redLED.setState(false);
+        		if(currentGState != prevGState)
+        		{
+        			Gcounter += 1;
+        			System.out.println("Number of Green Presses: " + Gcounter);
+        		}
+        	}
+        	else
+        	{
+        		redLED.setState(true);
+        	}
         	
         	Thread.sleep(250);
         }

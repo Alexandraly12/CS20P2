@@ -31,14 +31,14 @@ public class ReadButton {
 			if(currentRState != previousRState)
 			{
 				System.out.println("Red Button State: " + redButton.getState());
-				Thread.sleep(100);
+				Thread.sleep(200);
 				previousRState = currentRState;
 			}
 			
 			if(currentGState != previousGState)
 			{
 				System.out.println("Green Button State: " + greenButton.getState());
-				Thread.sleep(100);
+				Thread.sleep(200);
 				previousGState = currentGState;
 			}
 			

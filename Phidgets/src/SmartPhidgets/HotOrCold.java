@@ -29,12 +29,14 @@ public class HotOrCold
 			if(tempSensor.getTemperature() > 20 && tempSensor.getTemperature() < 27)
 			{
 				redLED.setState(true);
+				greenLED.setState(false);
 				Thread.sleep(100);
 			}
 			
 			else if(tempSensor.getTemperature() < 20 || tempSensor.getTemperature() > 27)
 			{
 				greenLED.setState(true);
+				redLED.setState(false);
 				Thread.sleep(100);
 			}
 			
