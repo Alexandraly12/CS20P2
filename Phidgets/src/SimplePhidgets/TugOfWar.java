@@ -45,7 +45,7 @@ public class TugOfWar
     	   Thread.sleep(1000);
        }
         
-       System.out.print("GO!");
+       System.out.println("GO!");
        
        while(Rcounter < 10 && Gcounter < 10)
 	   {
@@ -82,11 +82,20 @@ public class TugOfWar
 		redLED.setState(false);
 		Thread.sleep(1000);
 		
+		if(Rcounter == 10)
+		{
+			System.out.println("Red Wins!!");
+		}
+		else if(Gcounter == 10)
+		{
+			System.out.println("Green Wins!");	
+		}
+		
 		while(blinks < 5)
 		{
 			blinks += 1;
 			if(Rcounter == 10)
-			{
+			{		
 				redLED.setState(true);
 				Thread.sleep(800);
 				redLED.setState(false);
@@ -102,8 +111,6 @@ public class TugOfWar
 			}
 
 		}
-		
-		System.out.println("Winner!!");
   
         
 	}
