@@ -24,10 +24,7 @@ public class AttachDetachEvent
         greenButton.setIsHubPortDevice(true);
         greenLED.setHubPort(4);
         greenLED.setIsHubPortDevice(true);
-       
-
-        //Data Event 
-       
+      
 
         //Attach Event Temp Sensor
         temperatureSensor.addAttachListener(new AttachListener() 
