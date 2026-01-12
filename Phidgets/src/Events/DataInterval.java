@@ -11,8 +11,10 @@ public class DataInterval
         TemperatureSensor temperatureSensor = new TemperatureSensor();
 
         //Temperature Event |  Event code runs when data input from the sensor changes. The following event is a Temperature change event. The contained code will only run when the temperature input changes.
-        temperatureSensor.addTemperatureChangeListener(new TemperatureSensorTemperatureChangeListener() {
-            public void onTemperatureChange(TemperatureSensorTemperatureChangeEvent e) {
+        temperatureSensor.addTemperatureChangeListener(new TemperatureSensorTemperatureChangeListener() 
+        {
+            public void onTemperatureChange(TemperatureSensorTemperatureChangeEvent e) 
+            {
                 System.out.println("Temperature: " + e.getTemperature());
             }
         });
@@ -21,10 +23,11 @@ public class DataInterval
         temperatureSensor.open(5000);
 
         //Set Data Interval | The Data Interval controls how often the program collects data from your Phidget. The Data Interval ranges from 500 ms - 60000 ms.
-        temperatureSensor.setDataInterval(1000);
+        temperatureSensor.setDataInterval(60000);
 
         //Keep program running
-        while (true) {
+        while (true) 
+        {
             Thread.sleep(150);
         }
     	 

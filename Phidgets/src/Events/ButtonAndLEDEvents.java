@@ -67,7 +67,13 @@ public class ButtonAndLEDEvents
         //Use your Phidgets 
         while(Rcounter < 10 && Gcounter < 10)
  	   	{
-         	boolean currentRState = redButton.getState();
+       	 	//turn red LED on based on red button input
+        	redLED.setState(turnRedLEDOn);
+           //turn green LED on based on green button input
+           greenLED.setState(turnGreenLEDOn);
+           //sleep for 150 milliseconds 
+           Thread.sleep(150);
+        	boolean currentRState = redButton.getState();
  	     	boolean currentGState = greenButton.getState();
  	     	
  	    	if(redButton.getState())
@@ -92,12 +98,15 @@ public class ButtonAndLEDEvents
  	    }
         while(true) 
         {
-            //turn red LED on based on red button input
-        	redLED.setState(turnRedLEDOn);
-            //turn green LED on based on green button input
-            greenLED.setState(turnGreenLEDOn);
-            //sleep for 150 milliseconds 
-            Thread.sleep(150);
+        	if(Rcounter > 10)
+        	{
+        		System.out.println("Red Wins!");
+        	}
+        	if(Gcounter > 10)
+        	{
+        		System.out.println("Green Wins!");
+        	}
+           
         }
 
 	}
