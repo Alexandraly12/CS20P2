@@ -24,6 +24,7 @@ public class ClosingPhidgets {
         //Open then printing temp
         temperatureSensor.open(1000);
         
+        //Printing after opening again
         System.out.println("Temperature: " + temperatureSensor.getTemperature() + " °C" );
 	}
 

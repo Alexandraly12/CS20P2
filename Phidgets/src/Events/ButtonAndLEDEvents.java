@@ -51,9 +51,9 @@ public class ButtonAndLEDEvents
         //Turn checker and LED flashes
         boolean prevRState = false;
         boolean prevGState = false;
+        int blinks = 0;
         int Rcounter = 0;
         int Gcounter = 0;
-        int blinks = 0;
         
         //Start
         for(int i = 3; i > 0; i--)
@@ -66,22 +66,24 @@ public class ButtonAndLEDEvents
         
         //Use your Phidgets 
         while(Rcounter < 10 && Gcounter < 10)
- 	   	{
-       	 	//turn red LED on based on red button input
-        	redLED.setState(turnRedLEDOn);
-           //turn green LED on based on green button input
-           greenLED.setState(turnGreenLEDOn);
-           //sleep for 150 milliseconds 
-           Thread.sleep(150);
-        	boolean currentRState = redButton.getState();
+ 	   {
+         	boolean currentRState = redButton.getState();
  	     	boolean currentGState = greenButton.getState();
  	     	
  	    	if(redButton.getState())
  	    	{
+ 	    		redLED.setState(turnRedLEDOn);
+ 	            //turn green LED on based on green button input
+ 	            greenLED.setState(turnGreenLEDOn);
+ 	            //sleep for 150 milliseconds 
+ 	            Thread.sleep(100);
+ 	            
+ 	            greenLED.setState(false);
  	    		redLED.setState(false);
  	    		if(currentRState != prevRState)
  	    		{
  	    			Rcounter += 1;
+ 	    			System.out.println("Red Presses: " + Rcounter);
  	    		}
  	    	}
  	    	
@@ -91,23 +93,50 @@ public class ButtonAndLEDEvents
  	    		if(currentGState != prevGState)
  	    		{
  	    			Gcounter += 1;
+ 	    			System.out.println("Green Presses: " + Gcounter);
  	    		}
  	    	}
  	     	
- 	     	Thread.sleep(150);
+ 	     	Thread.sleep(100);
  	    }
-        while(true) 
-        {
-        	if(Rcounter > 10)
-        	{
-        		System.out.println("Red Wins!");
-        	}
-        	if(Gcounter > 10)
-        	{
-        		System.out.println("Green Wins!");
-        	}
-           
-        }
+        
+        redLED.setState(true);
+		greenLED.setState(true);
+		Thread.sleep(1000);
+		 
+		greenLED.setState(false);
+		redLED.setState(false);
+		Thread.sleep(1000);
+		
+		if(Rcounter == 10)
+		{
+			System.out.println("Red Wins!");
+		}
+		else
+		{
+			System.out.println("Green Wins!");
+		}
+        
+		while(blinks < 5)
+		{
+			blinks += 1;
+			if(Rcounter == 10)
+			{		
+				redLED.setState(true);
+				Thread.sleep(800);
+				redLED.setState(false);
+				Thread.sleep(800);
+			}
+			
+			else if(Gcounter == 10)
+			{
+				greenLED.setState(true);
+				Thread.sleep(800);
+				greenLED.setState(false);
+				Thread.sleep(800);
+			}
+
+		}
 
 	}
 
